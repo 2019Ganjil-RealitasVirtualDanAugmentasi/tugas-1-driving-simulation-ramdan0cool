@@ -18,6 +18,12 @@ public class SimpleCarControl : MonoBehaviour
     public List<AxleInfo> axleInfos;
     public float maxMotorTorque;
     public float maxSteeringAngle;
+    public float acceleration;
+    public bool reverse;
+
+    private float steering;
+    private float motor;
+    float accel = 0f;
 
     #endregion
 
@@ -30,6 +36,20 @@ public class SimpleCarControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKey(KeyCode.W))
+        {
+            accel += Time.deltaTime * acceleration;
+            accel = Mathf.Clamp01(accel);
+            motor = Mathf.Clamp(accel, 0, 1) * maxMotorTorque;
+        }
+        else
+        {
+            accel -= Time.deltaTime * acceleration;
+            accel = Mathf.Clamp01(accel);
+            motor = 0;
+        }
+        steering = maxSteeringAngle * Input.GetAxis("Horizontal");
+
         ////float vertical = UserInput.GetAxis("Vertical");
         //forward = Input.GetAxis("Vertical");
         //if (forward > 0.1)
@@ -67,8 +87,7 @@ public class SimpleCarControl : MonoBehaviour
 
     private void FixedUpdate()
     {
-        float motor = maxMotorTorque * -Input.GetAxis("Vertical");
-        float steering = maxSteeringAngle * Input.GetAxis("Horizontal");
+        //float motor = maxMotorTorque * -Input.GetAxis("Vertical");
 
         foreach (AxleInfo info in axleInfos)
         {
@@ -79,8 +98,8 @@ public class SimpleCarControl : MonoBehaviour
             }    
             if(info.motor)
             {
-                info.leftWheel.motorTorque = motor;
-                info.rightWheel.motorTorque = motor;
+                info.leftWheel.motorTorque = -motor;
+                info.rightWheel.motorTorque = -motor;
             }
         }
     }
