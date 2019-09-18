@@ -39,15 +39,15 @@ public class SimpleCarControl : MonoBehaviour
         if (Input.GetKey(KeyCode.W))
         {
             accel += Time.deltaTime * acceleration;
-            accel = Mathf.Clamp01(accel);
-            motor = Mathf.Clamp(accel, 0, 1) * maxMotorTorque;
+            accel = Mathf.Clamp01(accel);            
         }
         else
         {
             accel -= Time.deltaTime * acceleration;
             accel = Mathf.Clamp01(accel);
-            motor = 0;
         }
+
+        motor = Mathf.Clamp(accel, 0, 1) * maxMotorTorque;
         steering = maxSteeringAngle * Input.GetAxis("Horizontal");
 
         ////float vertical = UserInput.GetAxis("Vertical");
