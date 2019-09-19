@@ -1,11 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class SimpleCarControl : MonoBehaviour
 {
     #region Variables
-    //private Rigidbody rb;
+    private Rigidbody rb;
     //private float currentSpeed, forward;
 
     //[SerializeField] private float maxSpeed;
@@ -19,23 +20,29 @@ public class SimpleCarControl : MonoBehaviour
     public float maxMotorTorque;
     public float maxSteeringAngle;
     public float acceleration;
+    public float maxBrakeTorque= 10;
     public bool reverse;
+    public TextMeshProUGUI speedometer;
 
     private float steering;
-    private float motor;
-    float accel = 0f;
+    private float motor, brake;
+    private float accel = 0f;
+    private float wheelCircumference;
 
     #endregion
 
     // Start is called before the first frame update
     void Start()
     {
-    //    rb = GetComponent<Rigidbody>();
+        rb = GetComponent<Rigidbody>();
+        wheelCircumference = axleInfos[1].rightWheel.radius * 2.0f * 3.14f;
     }
 
     // Update is called once per frame
     void Update()
     {
+        /*
+        Debug.Log(Input.GetAxis("Throttle"));
         if (Input.GetKey(KeyCode.W))
         {
             accel += Time.deltaTime * acceleration;
@@ -48,8 +55,27 @@ public class SimpleCarControl : MonoBehaviour
         }
 
         motor = Mathf.Clamp(accel, 0, 1) * maxMotorTorque;
+        */
+        if(Input.GetButtonDown("Gear Up"))
+        {
+            reverse = true;
+        }
+        else if(Input.GetButtonDown("Gear Down"))
+        {
+            reverse = false;
+        }
+        Debug.Log(Input.GetAxis("Throttle"));
+        if (Input.GetAxis("Throttle") > 0)
+            motor = maxMotorTorque * Input.GetAxis("Throttle");
+        else
+        {
+            brake = -Input.GetAxis("Throttle") * maxBrakeTorque;
+            motor = 0f;
+        }
+
         steering = maxSteeringAngle * Input.GetAxis("Horizontal");
 
+        
         ////float vertical = UserInput.GetAxis("Vertical");
         //forward = Input.GetAxis("Vertical");
         //if (forward > 0.1)
@@ -87,8 +113,6 @@ public class SimpleCarControl : MonoBehaviour
 
     private void FixedUpdate()
     {
-        //float motor = maxMotorTorque * -Input.GetAxis("Vertical");
-
         foreach (AxleInfo info in axleInfos)
         {
             if(info.steering)
@@ -98,10 +122,18 @@ public class SimpleCarControl : MonoBehaviour
             }    
             if(info.motor)
             {
-                info.leftWheel.motorTorque = -motor;
-                info.rightWheel.motorTorque = -motor;
+                info.leftWheel.motorTorque = reverse ? motor : -motor;
+                info.rightWheel.motorTorque = reverse ? motor : -motor;
+                info.leftWheel.brakeTorque = brake;
+                info.rightWheel.brakeTorque = brake;
             }
         }
+
+        float speed = rb.velocity.magnitude;
+        speed *= 3.6f;
+        if (speed > 240)
+            rb.velocity = (240 / 3.6f) * rb.velocity.normalized;
+        speedometer.text = speed.ToString("F2");
     }
 }
 [System.Serializable]
