@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2abdbf2e05c375d48ab1220e7f45d668, type: 3}
   m_Name: Audi S3
   m_EditorClassIdentifier: 
-  maxSpeed: 50
-  accelerationValue: 1.7
-  brakeValue: 2.9
+  maxMotorTorque: 400
+  maxBrakeTorque: 800
+  maxSteeringAngle: 40

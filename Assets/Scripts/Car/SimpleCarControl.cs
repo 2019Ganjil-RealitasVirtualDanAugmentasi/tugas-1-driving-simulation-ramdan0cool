@@ -64,15 +64,14 @@ public class SimpleCarControl : MonoBehaviour
         {
             reverse = false;
         }
-        Debug.Log(Input.GetAxis("Throttle"));
-        if (Input.GetAxis("Throttle") > 0)
+        if (Input.GetAxis("Throttle") > 0.1)
             motor = maxMotorTorque * Input.GetAxis("Throttle");
         else
         {
             brake = -Input.GetAxis("Throttle") * maxBrakeTorque;
             motor = 0f;
         }
-
+        Debug.Log(motor);
         steering = maxSteeringAngle * Input.GetAxis("Horizontal");
 
         
@@ -136,6 +135,7 @@ public class SimpleCarControl : MonoBehaviour
         speedometer.text = speed.ToString("F2");
     }
 }
+
 [System.Serializable]
 public class AxleInfo
 {

@@ -584,6 +584,7 @@ GameObject:
   - component: {fileID: 4898732978107072213}
   - component: {fileID: 4898732978107458633}
   - component: {fileID: 4898732978107458639}
+  - component: {fileID: 6621387588340671823}
   m_Layer: 0
   m_Name: Audi_S3
   m_TagString: Untagged
@@ -654,7 +655,32 @@ MonoBehaviour:
   maxMotorTorque: 400
   maxSteeringAngle: 40
   acceleration: 7
+  maxBrakeTorque: 10
   reverse: 0
+  speedometer: {fileID: 0}
+--- !u!114 &6621387588340671823
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4898732978107556597}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f27b3729f51fc94db0d78a70a3ec783, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  carSetting: {fileID: 11400000, guid: ba65b01da882f8d48838f6eb44d541a1, type: 2}
+  axleInfos:
+  - leftWheel: {fileID: 4898732976755656503}
+    rightWheel: {fileID: 4898732976919906443}
+    motor: 1
+    steering: 1
+  - leftWheel: {fileID: 4898732977359052047}
+    rightWheel: {fileID: 4898732977829627380}
+    motor: 1
+    steering: 0
+  inputChoice: 0
 --- !u!1 &4898732978107556599
 GameObject:
   m_ObjectHideFlags: 0

@@ -5,6 +5,8 @@ using UnityEngine;
 public interface ICarInput
 {
     void ReadInput();
-    bool Throttle { get; }
-    bool Brake { get; }
+    float SteerInput { get; }
+    float Throttle { get; }
+    float Brake { get; }
+    bool Reverse { get; }
 }

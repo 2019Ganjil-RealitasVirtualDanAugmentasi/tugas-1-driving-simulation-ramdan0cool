@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class KeyboardInput : ICarInput
+public class SteeringWheelInput : ICarInput
 {
     public float Throttle { get; private set; }
     public float Brake { get; private set; }
@@ -12,15 +12,15 @@ public class KeyboardInput : ICarInput
     public void ReadInput()
     {
         Throttle = Brake = 0;
-        if (Input.GetAxis("Vertical") > 0.1)
-            Throttle = Input.GetAxis("Vertical");
+        if (Input.GetAxis("Throttle") > 0.1)
+            Throttle = Input.GetAxis("Throttle");
         else
         {
-            Brake = -Input.GetAxis("Vertical");
+            Brake = -Input.GetAxis("Throttle");
         }
         SteerInput = Input.GetAxis("Horizontal");
 
-        if (Input.GetKeyDown(KeyCode.PageUp)) Reverse = false;
-        else if (Input.GetKeyDown(KeyCode.PageDown)) Reverse = true;
+        if (Input.GetButtonDown("Gear Up")) Reverse = false;
+        else if (Input.GetButtonDown("Gear Down")) Reverse = true;
     }
 }

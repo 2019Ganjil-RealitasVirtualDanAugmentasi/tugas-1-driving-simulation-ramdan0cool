@@ -5,11 +5,11 @@ using UnityEngine;
 [CreateAssetMenu(menuName ="Car/Settings", fileName="CarData")]
 public class CarSettings : ScriptableObject
 {
-    [SerializeField] private float maxSpeed;
-    [SerializeField] private float accelerationValue;
-    [SerializeField] private float brakeValue;
+    [SerializeField] private float maxMotorTorque;
+    [SerializeField] private float maxBrakeTorque;
+    [SerializeField] private float maxSteeringAngle;
 
-    public float MaxSpeed { get => maxSpeed; }
-    public float AccelerationValue { get => accelerationValue;}
-    public float BrakeValue { get => brakeValue;}
+    public float MaxMotorTorque { get => maxMotorTorque;}
+    public float MaxBrakeTorque { get => maxBrakeTorque;}
+    public float MaxSteeringAngle { get => maxSteeringAngle;}
 }
