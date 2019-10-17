@@ -432,17 +432,17 @@ PrefabInstance:
     - target: {fileID: 2511854596634052350, guid: 3dce5976f0acfdd4d9bafeac6e15d3cb,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1328.3
+      value: -531.7
       objectReference: {fileID: 0}
     - target: {fileID: 2511854596634052350, guid: 3dce5976f0acfdd4d9bafeac6e15d3cb,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2511854596634052350, guid: 3dce5976f0acfdd4d9bafeac6e15d3cb,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1332.1
+      value: -528.5
       objectReference: {fileID: 0}
     - target: {fileID: 2511854596634052350, guid: 3dce5976f0acfdd4d9bafeac6e15d3cb,
         type: 3}
@@ -34281,17 +34281,17 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 7a39086ee59050d46a693b8bef13ff2a,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 7a39086ee59050d46a693b8bef13ff2a,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 7a39086ee59050d46a693b8bef13ff2a,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8304057255702055377, guid: 7a39086ee59050d46a693b8bef13ff2a,
         type: 3}
@@ -34379,7 +34379,7 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 0
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0

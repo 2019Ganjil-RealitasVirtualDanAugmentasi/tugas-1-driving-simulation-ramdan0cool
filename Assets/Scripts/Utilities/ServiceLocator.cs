@@ -13,10 +13,10 @@ public static class ServiceLocator
         return (T)container[typeof(T)];
     }
 
-    public static void AddService<T> (T service) where T : Object
+    public static void AddService (object key, object service)
     {
         if (container == null) container = new Dictionary<object, object>();
 
-        container.Add(typeof(T), service);
+        container.Add(key, service);
     }
 }
