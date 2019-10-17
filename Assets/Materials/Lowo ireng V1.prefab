@@ -1073,6 +1073,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2511854596634052350}
     m_Modifications:
+    - target: {fileID: -927199367670048503, guid: f3d01e7454cffe84fb7ab36037ec7d96,
+        type: 3}
+      propertyPath: m_Name
+      value: Lowo ireng V1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2502203975881118265, guid: f3d01e7454cffe84fb7ab36037ec7d96,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: f3d01e7454cffe84fb7ab36037ec7d96,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1128,16 +1138,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -927199367670048503, guid: f3d01e7454cffe84fb7ab36037ec7d96,
+    - target: {fileID: 8304545770963488453, guid: f3d01e7454cffe84fb7ab36037ec7d96,
         type: 3}
-      propertyPath: m_Name
-      value: Lowo ireng V1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2502203975881118265, guid: f3d01e7454cffe84fb7ab36037ec7d96,
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 84d7a9cf2d44d374fa4a02a8da4d6778, type: 2}
+    - target: {fileID: 608615394619914483, guid: f3d01e7454cffe84fb7ab36037ec7d96,
         type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a42df35ba6352da479e2463b1cbce77f, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f3d01e7454cffe84fb7ab36037ec7d96, type: 3}
 --- !u!4 &683204377476991767 stripped
